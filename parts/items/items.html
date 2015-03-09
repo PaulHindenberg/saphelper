@@ -1,0 +1,24 @@
+<ion-view title="Items">
+
+    <ion-nav-buttons side="left">
+        <button style="float: left;" class="button-icon icon ion-ios7-arrow-back" ng-click="leavePage()">
+            <span class="backButtonText">Back</span>
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content class="padding">
+        <ion-list>
+            <ion-item ng-repeat="i in items" ng-click="onItemSelected(i)">
+                <h2>{{i.name}} </h2>
+                <p>{{i.descr}}</p>
+            </ion-item>
+            <ion-item>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+    <div class="bar bar-footer">
+        <div class="title button button-clear" ng-click="onNewItemClicked()">+</div>
+    </div>
+</ion-view>
+

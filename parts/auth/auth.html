@@ -1,0 +1,34 @@
+<ion-view title="Auth" hide-nav-bar="true">
+    <ion-content class="padding" has-header="false">
+
+     <div class="row" style="text-align: center; display: block; font-size: 1.4em; margin-bottom:7px;">
+         <span>PIN: &nbsp;</span>
+         <!--<span>{{pin.1st != '' ? '_' : '*'}}</span>-->
+         <span>{{pin[0] === undefined ? '_' : '*'}}&nbsp;</span>
+         <span>{{pin[1] === undefined ? '_' : '*'}}&nbsp;</span>
+         <span>{{pin[2] === undefined ? '_' : '*'}}&nbsp;</span>
+         <span>{{pin[3] === undefined ? '_' : '*'}}&nbsp;</span>
+         <button class="button" style="margin-top: -12px;" ng-click="removeLastNumber()"><--</button>
+     </div>
+
+    <div class="row authRow">
+        <div class="col button" ng-click="numberClicked(1)">1</div>
+        <div class="col button">2</div>
+        <div class="col button">3</div>
+    </div>
+    <div class="row authRow">
+        <div class="col button">4</div>
+        <div class="col button">5</div>
+        <div class="col button">6</div>
+    </div>
+    <div class="row authRow">
+        <div class="col button">7</div>
+        <div class="col button">8</div>
+        <div class="col button">9</div>
+    </div>
+        <div class="row authRow">
+            <div class="col col-33 col-offset-33 button">0</div>
+        </div>
+    </ion-content>
+</ion-view>
+

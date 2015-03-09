@@ -1,0 +1,41 @@
+<ion-view title="Neu">
+    <ion-nav-buttons side="left" ng-click="goBackButton()">
+        <button style="float: left;" class="button-icon icon ion-ios7-arrow-back" ng-click="leavePage()">
+            <span class="backButtonText">Back</span>
+        </button>
+    </ion-nav-buttons>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Name</span>
+                <input class="newItemInput" type="text" placeholder="Name" ng-model="newItem.name">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Untertitel</span>
+                <input class="newItemInput" type="text" placeholder="Untertitel" ng-model="newItem.descr"></textarea>
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Langtext/Beschreibung</span>
+                <textarea class="newItemTA" placeholder="Langtext/Beschreibung" ng-model="newItem.longtext"></textarea>
+            </label>
+            <!--<li class="item item-checkbox" ng-repeat="s in scopes">-->
+                <!--<label class="checkbox">-->
+                    <!--<input type="checkbox">-->
+                <!--</label>-->
+                <!--{{s.name}}-->
+            <!--</li>-->
+            <ion-checkbox ng-repeat="s in scopes" ng-model="s.checked" ng-checked="s.checked">{{s.name}}</ion-checkbox>
+
+            <!--this last one is just a workaround for display/design css stuff I dont wanna figure out right now-->
+            <li class="item">
+                <label class="checkbox">
+                    <!--<input type="checkbox">-->
+                </label>
+
+            </li>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <button class="button button-block button-positive" style="margin-top: 0px;" ng-click="onAddNewItem()">Speichern</button>
+    </div>
+</ion-view>

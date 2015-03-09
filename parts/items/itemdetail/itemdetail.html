@@ -1,0 +1,48 @@
+<ion-view title="{{item.name}}">
+
+    <ion-nav-buttons side="left" ng-click="goBackButton()">
+        <button style="float: left;" class="button-icon icon ion-ios7-arrow-back" ng-click="leavePage()">
+            <span class="backButtonText">Back</span>
+        </button>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <button style="float: left;" class="button button-icon icon ion-ios7-close-outline" ng-click="deleteItem()" ng-show="editMode"></button>
+        <button class="button button-icon icon ion-ios7-compose-outline" ng-click="toggleEditMode()"></button>
+    </ion-nav-buttons>
+
+    <ion-content class="padding">
+        <div style="padding: 5px;">
+            <input class="itemDetailInput" ng-show="editMode" type="text" ng-model="item.name" style="margin-bottom: 10px;" class/>
+            <p class="pTagItemDetail" ng-show="!editMode">{{item.descr}}</p>
+            <input class="itemDetailInput" ng-show="editMode" type="text" ng-model="item.descr"/>
+            <hr/>
+            <br/>
+            <p class="pTagItemDetail" ng-show="!editMode">{{item.longtxt}}</p>
+            <textarea class="itemDetailInput" ng-show="editMode" ng-model="item.longtxt" cols="30" rows="10"></textarea>
+            <div style="padding:12px;" ng-show="!editScopesMode">
+                <span ng-repeat="scope in item.scopes" style="color:#fdcd84">{{scope.name}}, </span>
+                <span style="color:#fdcd84" ng-show="editMode" ng-click="toggleEditScopesMode()">mehr</span>
+            </div>
+
+            <div ng-show="editScopesMode" style="padding-top: 18px;">
+
+                <ion-checkbox ng-repeat="s in scopes" ng-model="s.checked" ng-checked="s.checked" ng-change="onScopeCheckboxChanged(s)">{{s.name}}</ion-checkbox>
+                <!--this last one is just a workaround for display/design css stuff I dont wanna figure out right now-->
+                <li class="item">
+                    <label class="checkbox">
+                        <!--<input type="checkbox">-->
+                    </label>
+
+                </li>
+            </div>
+
+
+        </div>
+    </ion-content>
+    <div class="bar bar-footer">
+        <!--<button class="button button-full button-stable">Sichern</button>-->
+        <button ng-show="editMode" class="button button-positive" style="width: 100%;" ng-click="save()">save</button>
+    </div>
+</ion-view>
+
